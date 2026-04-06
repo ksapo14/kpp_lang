@@ -146,6 +146,10 @@ static InterpretResult run(VM *vm)
 {
     while (true)
     {
+        // add this debug print here
+        int offset = (int)(FRAME.ip - FRAME.chunk->code);
+        printf("offset: %d opcode: %d\n", offset, FRAME.chunk->code[offset]);
+
         uint8_t instruction = READ_BYTE();
 
         switch (instruction)
@@ -487,6 +491,15 @@ static InterpretResult run(VM *vm)
         {
             int arg_count = READ_BYTE();
             Value callee = *(vm->stack_top - arg_count - 1);
+            printf("callee type: %d value type in globals: \n", callee.type);
+
+            // print entire stack
+            printf("stack: ");
+            for (Value *v = vm->stack; v < vm->stack_top; v++)
+            {
+                printf("[type %d] ", v->type);
+            }
+            printf("\n");
 
             // native function
             if (IS_NATIVE(callee))
@@ -553,7 +566,7 @@ static InterpretResult run(VM *vm)
             }
 
             // restore stack to before the call
-            vm->stack_top = FRAME.slots - 1;
+            vm->stack_top = FRAME.slots;
             PUSH(result);
             break;
         }
@@ -587,6 +600,8 @@ InterpretResult vm_interpret(VM *vm, const char *source)
     frame->chunk = chunk;
     frame->ip = chunk->code;
     frame->slots = vm->stack;
+
+    // DEBUGGING: chunk_disassemble(chunk, "main");
 
     InterpretResult result = run(vm);
 

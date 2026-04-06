@@ -100,8 +100,8 @@ static TokenType identifier_type()
 {
     switch (lexer.start[0])
     {
-    case 'l':
-        return check_keyword(1, 2, "et", TOKEN_LET);
+    case 'v':
+        return check_keyword(1, 2, "ar", TOKEN_VARIABLE);
     case 'n':
         return check_keyword(1, 3, "ull", TOKEN_NULL);
     case 't':
@@ -113,8 +113,8 @@ static TokenType identifier_type()
             {
             case 'a':
                 return check_keyword(2, 3, "lse", TOKEN_FALSE);
-            case 'n':
-                return check_keyword(1, 1, "n", TOKEN_FN);
+            case 'u':
+                return check_keyword(2, 2, "nc", TOKEN_FN);
             case 'o':
                 return check_keyword(2, 1, "r", TOKEN_FOR);
             }

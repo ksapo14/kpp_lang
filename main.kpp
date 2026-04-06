@@ -1,5 +1,8 @@
-let x = ["a", "b", "c"]
+var a = 1
+var b = 1
 
-for (let i = 0; i < 3; i++) {
-    print(x[i])
+func add(x, y) {
+    return x + y
 }
+
+print(add(a, b))

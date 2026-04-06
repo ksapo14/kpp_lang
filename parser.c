@@ -459,7 +459,7 @@ static ASTNode *parse_for_statement()
 
     // init
     ASTNode *init = NULL;
-    if (match(TOKEN_LET))
+    if (match(TOKEN_VARIABLE))
     {
         init = parse_var_declaration();
     }
@@ -500,7 +500,7 @@ static ASTNode *parse_statement()
 {
     skip_newlines();
 
-    if (match(TOKEN_LET))
+    if (match(TOKEN_VARIABLE))
         return parse_var_declaration();
     if (match(TOKEN_FN))
         return parse_fn_declaration();

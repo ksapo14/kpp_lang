@@ -9,7 +9,7 @@ typedef enum
     TOKEN_STRING,
 
     // keywords
-    TOKEN_LET,
+    TOKEN_VARIABLE,
     TOKEN_NULL,
     TOKEN_TRUE,
     TOKEN_FALSE,
