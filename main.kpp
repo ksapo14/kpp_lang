@@ -1,0 +1,5 @@
+let x = ["a", "b", "c"]
+
+for (let i = 0; i < 3; i++) {
+    print(x[i])
+}
