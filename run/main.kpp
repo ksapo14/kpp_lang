@@ -1,0 +1,18 @@
+print("helloworld");
+
+let total = 0;
+let i = 1;
+while (i <= 5) {
+    total = total + i;
+    i = i + 1;
+}
+
+fun add(a, b) {
+    return a + b;
+}
+
+let oneone = add(1, 1);
+
+print(total);
+print(oneone);
+print("kp" + "p");
