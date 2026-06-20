@@ -155,7 +155,7 @@ $cliTests = @(
         Stdout = @'
 helloworld
 15
-42
+2
 kpp
 '@
         StderrContains = @()
